@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+  <script>
+    (() => {
+      const application = Stimulus.Application.start()
+
+      application.register("speak", class extends Stimulus.Controller {
+        static get targets() {
+          return [ "reply" ]
+        }
+
+        static values = {
+          status: { type: String, default: 'none' }
+        }
+
+        statusValueChanged() {
+          if (this.statusValue == 'sleeping'){
+            this.replyTarget.innerHTML = 'Zzzz..'
+            event.target.innerText = 'Good Morning'
+          } else {
+            this.replyTarget.innerHTML = 'Hello'
+            event.target.innerText = 'Good Night'
+          } 
+        }
+
+        connect() {
+          this.statusValue = 'sleeping'
+        }
+
+        toggleStatus(event) {
+          if (this.statusValue == 'sleeping'){
+            this.statusValue = 'awake'
+          } else {
+            this.statusValue = 'sleeping'
+          }
+        }
+      })
+    })()
+  </script>
+</head>
+<body>
+  <h3>Talk to me.</h3>
+  <div data-controller="speak" data-speak-status-value="none">
+    <div data-speak-target="reply"></div>
+    <button data-action="click->speak#toggleStatus">Good Morning</button>
+  </div>
+</body>
+</html>
