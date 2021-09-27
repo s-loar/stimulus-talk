@@ -28,7 +28,7 @@ Want to cover the basics with some examples
 * Values are for storing state as element attributes. They are similar to Targets.
 
 ## Controllers
-* Are the main objects for HTML interation.
+* Are the main objects for HTML interation. Work kinda like controllers of other frameworks. Behavior is encapsulated.
   * Have scope to the element they are an attribute, and it’s children.
   * Controllers ignore the scope of controllers nested within their scope.
   * More than one controller can be associated with the same element.
@@ -55,8 +55,8 @@ Want to cover the basics with some examples
   * initialize() - the controller is loaded.
   * connect() - the controller is connected to something in the DOM
   * disconnect() - the controller is disconnected from something in the DOM
-  * [targetName]TargetConnected() - The controller is connected to a target
-  * [targetName]TargetDisconnected() - The controller is disconnected to a target
+  * \[targetName\]TargetConnected() - The controller is connected to a target
+  * \[targetName\]TargetDisconnected() - The controller is disconnected to a target
 
 ## Values
 * Are a way to maintain state
@@ -65,9 +65,9 @@ Want to cover the basics with some examples
   * Can set and get their value similar to targets
   * Can set defaults
   * Have a special callback to handle any state changes
-  * [name]ValueChanged() which can receive 2 values.
-  * Current value
-  * Previous value
+    * \[name\]ValueChanged() which can receive 2 values.
+      * Current value
+      * Previous value
 
 ## CSS Classes
 * Similar to the pattern above in setup and naming
