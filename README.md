@@ -20,13 +20,14 @@ This talk seeks to cover the basics with some examples
 * Values are for storing state as element attributes. They are similar to Targets.
 
 ## Controllers
-* Are the main objects for HTML interaction. Work kinda like controllers of other frameworks. Behavior is encapsulated.
-  * Have scope to the element they are an attribute, and it’s children.
-  * Controllers ignore the scope of controllers nested within their scope.
+* Are the main objects for DOM interaction. Work kinda like controllers of other frameworks. 
+  * Its behavior is encapsulated.
+  * Have scope to the element on which they are an attribute, and it’s children.
+  * Controllers ignore the scope of any controllers nested within their scope.
   * More than one controller can be associated with the same element.
 
 ## Targets
-* Are primarily elements in the DOM to be interacted with by the controller.
+* Are elements in the DOM to be interacted with by the controller.
   * Have to declare them in the controller, and have to be in scope in the HTML
   * Can be shared by multiple controllers
   * Have a plural form (s on the end) that returns an array of objects that have the target designation. Example: phraseTargets
@@ -34,10 +35,10 @@ This talk seeks to cover the basics with some examples
   * Have special callbacks that fire when a target is connected, or disconnected from the controller’s scope. For example phraseTargetConnected() and phraseTargetDisconneted()
 
 ## Actions
-* Are listeners that connects a controller’s action to an HTML element
+* Are listeners that connects a controller’s action to a DOM element
   * Do not need to specify the trigger event for default actions, like ‘click’ for buttons. This gives data-action="speak#sayHello"
   * Actions can be on global events of the window and document.
-  * Can end event handling 
+  * Can stop further event handling 
     * event.preventDefault() - stops the event’s default behavior, like submitting a form.
     * event.stopPropagation() - stops the bubbling up of the event <- Use this one.
     * event.stopImmediatePropagation() - stops other actions, to the right, from executing on the same action.

@@ -13,10 +13,11 @@
         }
 
         static values = {
-          status: { type: String, default: 'none' }
+          status: { type: String, default: 'default' }
         }
 
-        statusValueChanged() {
+        statusValueChanged(current, previous) {
+          console.log("Running statusValueChanged: " + previous + " | " + current)
           if (this.statusValue == 'sleeping'){
             this.replyTarget.innerHTML = 'Zzzz..'
             event.target.innerText = 'Good Morning'
@@ -43,7 +44,7 @@
 </head>
 <body>
   <h3>Talk to me.</h3>
-  <div data-controller="speak" data-speak-status-value="none">
+  <div data-controller="speak" data-speak-status-value="attribute">
     <div data-speak-target="reply"></div>
     <button data-action="click->speak#toggleStatus">Good Morning</button>
   </div>
