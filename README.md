@@ -1,14 +1,6 @@
 # Stimulus Talk Outline
 
-Want to cover the basics with some examples
-
-## What Stimulus is
-* Parts
-  * Controllers
-  * Targets
-  * Actions
-  * Lifecycle Events
-  * Values
+This talk seeks to cover the basics with some examples
 
 ## What is Stimulus
 * The handbook describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
@@ -17,18 +9,18 @@ Want to cover the basics with some examples
   * Connects HTML elements to JavaScript objects (controllers)
     * Controllers
     * Actions
-    * Values
     * Targets
+    * Values
 
 ## In General
-* Controllers need to be attached to something to get instantiated. They have access to elements within their scope.
+* Controllers need to be attached to something to get instantiated. They have access to the elements within their scope.
 * Actions are listeners which run actions in the controller they specify
 * The event is passed to the action and we have access to that and to things within the controller’s scope, like targets and values.
 * Targets are things that the controller can interact with, usually to change. Targets are controller specific. So if an element needs to be updated from more than one controller, just add more target attributes for each controller. And they need to reside within the scope of the controller’s element.
 * Values are for storing state as element attributes. They are similar to Targets.
 
 ## Controllers
-* Are the main objects for HTML interation. Work kinda like controllers of other frameworks. Behavior is encapsulated.
+* Are the main objects for HTML interaction. Work kinda like controllers of other frameworks. Behavior is encapsulated.
   * Have scope to the element they are an attribute, and it’s children.
   * Controllers ignore the scope of controllers nested within their scope.
   * More than one controller can be associated with the same element.
@@ -39,7 +31,7 @@ Want to cover the basics with some examples
   * Can be shared by multiple controllers
   * Have a plural form (s on the end) that returns an array of objects that have the target designation. Example: phraseTargets
   * Their presence can be checked with the prefix ‘has’ as in hasPhraseTarget.
-  * Have special callbacks that fire when a target is connected, or disconnected from the controller’s scope. For example phaseTargetConnected() and phaseTargetDisconneted()
+  * Have special callbacks that fire when a target is connected, or disconnected from the controller’s scope. For example phraseTargetConnected() and phraseTargetDisconneted()
 
 ## Actions
 * Are listeners that connects a controller’s action to an HTML element

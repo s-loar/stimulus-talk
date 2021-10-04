@@ -13,10 +13,11 @@
         }
 
         connect() {
+          console.log('connected')
           this.replyTarget.innerHTML = 'Zzzz..'
         }
 
-        sayHello(event) {
+        toggleResponse(event) {
           if (this.replyTarget.innerHTML == 'Zzzz..'){
             this.replyTarget.innerHTML = 'Hello'
             event.target.innerText = 'Goodbye'
@@ -33,10 +34,10 @@
   <h3>Talk to me.</h3>
   <div data-controller="speak">
     <div data-speak-target="reply"></div>
-    <button data-action="click->speak#sayHello">Hello</button>
+    <button data-action="click->speak#toggleResponse">Hello</button>
     <div data-controller="speak">
       <div data-speak-target="reply"></div>
-      <button data-action="click->speak#sayHello">Hello</button>
+      <button data-action="click->speak#toggleResponse">Hello</button>
     </div>
   </div>
 </body>
