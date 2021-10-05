@@ -1,12 +1,12 @@
 # Stimulus Talk Outline
 
-This talk seeks to cover the basics with some examples
+Stimulus... a JavaScript framework with modest ambitions.
 
 ## What is Stimulus
 * The handbook describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
   * It is not a full blown framework like React, Angular or Vue
   * HTML centric
-  * Connects HTML elements to JavaScript objects (controllers)
+  * Connects DOM elements to JavaScript objects
     * Controllers
     * Actions
     * Targets
@@ -61,11 +61,3 @@ This talk seeks to cover the basics with some examples
     * \[name\]ValueChanged() which can receive 2 values.
       * Current value
       * Previous value
-
-## CSS Classes
-* Similar to the pattern above in setup and naming
-  * Set them on an element in the controller’s scope as an attribute.
-  * Declare them in the controller
-  * You can add and remove classes to that element with
-    * this.element.classList.add([the CSS class name])
-    * this.element.classList.remove([the CSS class name])
