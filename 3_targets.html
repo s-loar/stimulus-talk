@@ -13,6 +13,7 @@
         }
 
         connect() {
+          console.log('connected from speak')
           this.replyTarget.innerHTML = 'Zzzz..'
         }
 
@@ -24,6 +25,11 @@
       application.register("goodbye", class extends Stimulus.Controller {
         static get targets() {
           return [ "reply" ]
+        }
+
+        connect() {
+          console.log('connected from goodbye')
+          this.replyTarget.innerHTML = 'Zzzz..'
         }
 
         sayGoodbye(event) {

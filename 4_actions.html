@@ -13,6 +13,7 @@
         }
 
         connect() {
+          console.log('connected')
           this.replyTarget.innerHTML = 'Zzzz..'
         }
 
@@ -22,7 +23,7 @@
             event.target.innerText = 'Goodbye'
           } else {
             this.replyTarget.innerHTML = 'Zzzz..'
-            event.target.innerText = 'Default Action'
+            event.target.innerText = 'Default Event'
           }
         }
 
@@ -37,7 +38,7 @@
   <h3>Talk to me.</h3>
   <div data-controller="speak" data-action="resize@window->speak#reactToResize">
     <div data-speak-target="reply"></div>
-    <button data-action="speak#toggleResponse">Default Action</button>
+    <button data-action="speak#toggleResponse">Default Event</button>
   </div>
 </body>
 </html>
