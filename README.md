@@ -13,11 +13,11 @@ Stimulus... a JavaScript framework with modest ambitions.
     * Values
 
 ## In General
-* Controllers need to be attached to something to get instantiated. They have access to the elements within their scope.
-* Actions are listeners which run actions in the controller they specify
-* The event is passed to the action and we have access to that and to things within the controller’s scope, like targets and values.
-* Targets are things that the controller can interact with, usually to change. Targets are controller specific. So if an element needs to be updated from more than one controller, just add more target attributes for each controller. And they need to reside within the scope of the controller’s element.
-* Values are for storing state as element attributes. They are similar to Targets.
+* Controllers need to be attached to something in the DOM. They are limited by their scope.
+* Actions are methods in the controller. They are often event listeners.
+* The event is passed to the action and we have access to that and to object within the controller’s scope, like targets and values.
+* Targets are significant things that the controller can interact with, as input or output.  
+* Values are for storing state as element attributes on the controller's element.
 
 ## Controllers
 * Are the main objects for DOM interaction. Work kinda like controllers of other frameworks. 
