@@ -2,7 +2,7 @@
 
 Stimulus... a JavaScript framework with modest ambitions.
 
-## Current version: v3.0.1 - released 10/7/2021
+##### Current version: v3.0.1 - released 10/7/2021
 ## What is Stimulus
 * The handbook describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
   * It is not a full blown framework like React, Angular or Vue
