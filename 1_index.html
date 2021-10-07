@@ -2,32 +2,28 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
-  <script>
-    (() => {
-      const application = Stimulus.Application.start()
+  <script type="module">
+    import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+    window.Stimulus = Application.start()
 
-      application.register("speak", class extends Stimulus.Controller {
-        static get targets() {
-          return [ "reply" ]
-        }
+    Stimulus.register("speak", class extends Controller {
+      static targets = [ "reply" ]
 
-        connect() {
-          console.log('connected')
+      connect() {
+        console.log('connected')
+        this.replyTarget.innerHTML = 'Zzzz..'
+      }
+
+      toggleResponse(event) {
+        if (this.replyTarget.innerHTML == 'Zzzz..'){
+          this.replyTarget.innerHTML = 'Hello'
+          event.target.innerText = 'Goodbye'
+        } else {
           this.replyTarget.innerHTML = 'Zzzz..'
+          event.target.innerText = 'Hello'
         }
-
-        toggleResponse(event) {
-          if (this.replyTarget.innerHTML == 'Zzzz..'){
-            this.replyTarget.innerHTML = 'Hello'
-            event.target.innerText = 'Goodbye'
-          } else {
-            this.replyTarget.innerHTML = 'Zzzz..'
-            event.target.innerText = 'Hello'
-          }
-        }
-      })
-    })()
+      }
+    })
   </script>
 </head>
 <body>

@@ -2,40 +2,36 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
-  <script>
-    (() => {
-      const application = Stimulus.Application.start()
+  <script type="module">
+    import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+    window.Stimulus = Application.start()
 
-      application.register("speak", class extends Stimulus.Controller {
-        static get targets() {
-          return [ "reply" ]
-        }
+    Stimulus.register("speak", class extends Controller {
+      static targets = [ "reply" ]
 
-        initialize() {
-          console.log('initialize fired.')
-        }
+      initialize() {
+        console.log('initialize fired.')
+      }
 
-        connect() {
-          console.log('connect fired.')
+      connect() {
+        console.log('connect fired.')
+        this.replyTarget.innerHTML = 'Zzzz..'
+      }
+
+      replyTargetConnected() {
+        console.log('target connected.')
+      }
+
+      toggleResponse(event) {
+        if (this.replyTarget.innerHTML == 'Zzzz..'){
+          this.replyTarget.innerHTML = 'Hello'
+          event.target.innerText = 'Goodbye'
+        } else {
           this.replyTarget.innerHTML = 'Zzzz..'
+          event.target.innerText = 'Hello'
         }
-
-        replyTargetConnected() {
-          console.log('target connected.')
-        }
-
-        toggleResponse(event) {
-          if (this.replyTarget.innerHTML == 'Zzzz..'){
-            this.replyTarget.innerHTML = 'Hello'
-            event.target.innerText = 'Goodbye'
-          } else {
-            this.replyTarget.innerHTML = 'Zzzz..'
-            event.target.innerText = 'Hello'
-          }
-        }
-      })
-    })()
+      }
+    })
   </script>
 </head>
 <body>
