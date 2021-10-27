@@ -1,13 +1,13 @@
 # Stimulus Talk Outline
 
-Stimulus... a JavaScript framework with modest ambitions.
+Stimulus ...a JavaScript framework with modest ambitions.
 
 ##### Current version: v3.0.1 - released 10/7/2021
 ## What is Stimulus
-* The handbook describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
+* The [handbook](https://stimulus.hotwired.dev/handbook/introduction) describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
   * It is not a full blown framework like React, Angular or Vue
   * HTML centric
-  * Connects DOM elements to JavaScript objects
+  * Connects DOM elements to JavaScript objects via
     * Controllers
     * Actions
     * Targets
@@ -15,7 +15,7 @@ Stimulus... a JavaScript framework with modest ambitions.
 
 ## In General
 * Controllers are attached to something in the DOM. They are limited by their scope.
-* Actions are methods in the controller. They are often event listeners.
+* Actions are events linked to methods in the controller. They are often event listeners.
 * Targets are "significant" things in the DOM that the controller can interact with.  
 * Values are for storing state.
 
@@ -36,6 +36,7 @@ Stimulus... a JavaScript framework with modest ambitions.
 
 ## Actions
 * Are listeners that connects a controller’s action to a DOM element
+  * Can combine different controller methods to fire on the same action
   * Do not need to specify the trigger event for default actions, like ‘click’ for buttons. This gives data-action="speak#sayHello"
   * Actions can be on global events of the window and document.
   * Can stop further event handling 

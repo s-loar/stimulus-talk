@@ -8,10 +8,9 @@
     Stimulus.debug = true
 
     Stimulus.register("speak", class extends Controller {
-      static targets = [ "reply" ]
+      static targets = [ "reply", "gday" ]
 
       connect() {
-        console.log('connected from speak')
         this.replyTarget.innerHTML = 'Zzzz..'
       }
 
@@ -20,18 +19,27 @@
           this.replyTarget.innerHTML = 'Hello'
         }
       }
+
+      sayGday(event) {
+        if (this.hasGdayTarget) {
+          this.gdayTarget.innerHTML = "G'day, to you also"
+        }
+      }
     })
 
     Stimulus.register("goodbye", class extends Controller {
-      static targets = [ "reply" ]
-
-      connect() {
-        console.log('connected from goodbye')
-      }
+      static targets = [ "reply", "gday" ]
 
       sayGoodbye(event) {
         if (this.hasReplyTarget) {
           this.replyTarget.innerHTML = 'Zzzz..'
+        }
+      }
+
+      sayGday(event) {
+        this.dispatch("sayGday")
+        if (this.hasGdayTarget) {
+          this.gdayTarget.innerHTML = "G'day, mate"
         }
       }
     })
@@ -39,10 +47,13 @@
 </head>
 <body>
   <h3>Talk to me.</h3>
-  <div data-controller="speak goodbye">
+  <div data-controller="speak goodbye" data-action="goodbye:sayGday->speak#sayGday">
     <div data-speak-target="reply" data-goodbye-target="reply"></div>
-    <button data-action="click->speak#sayHello">Hello</button>
-    <button data-action="click->goodbye#sayGoodbye">Goodbye</button>
+    <div data-goodbye-target="gday"></div>
+    <div data-speak-target="gday"></div>
+    <button data-action="click->speak#sayHello">Say Hello</button>
+    <button data-action="click->goodbye#sayGoodbye">Say Goodbye</button>
+    <button data-action="speak#sayHello goodbye#sayGday">Say G'day</button>
   </div>
 </body>
 </html>
