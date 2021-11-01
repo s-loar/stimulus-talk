@@ -1,20 +1,18 @@
 ---
 marp: true
 paginate: true
-header: 'StimulusJS ...a JavaScript framework with modest ambition'
+header: 'Stimulus ...a JavaScript framework with modest ambition'
 footer: 'Steve Loar, 2021'
 ---
-# StimulusJS
 
+## Stimulus ...a JavaScript framework with modest ambitions.
 
-Stimulus ...a JavaScript framework with modest ambitions.
-
-Current version: v3.0.1 - released 10/7/2021
+###### *Current version: v3.0.1 - released 10/7/2021*
 
 ---
 ## What is Stimulus
 - The [handbook](https://stimulus.hotwired.dev/handbook/introduction) describes Stimulus as ‘... a JavaScript framework with modest ambitions.’ 
-  - It is not a full blown framework like React, Angular or Vue
+  - while it is not a full blown framework like React, Angular or Vue. It is a response to the popularity of React and LiveView
   - HTML centric
   - Connects DOM elements to JavaScript objects via
     - Controllers
@@ -22,7 +20,7 @@ Current version: v3.0.1 - released 10/7/2021
     - Targets
     - Values
 ---
-## In General
+## General Overview
 - Controllers are attached to something in the DOM. They are limited by their scope.
 - Actions are events linked to methods in the controller. They are often event listeners.
 - Targets are "significant" things in the DOM that the controller can interact with.  
@@ -44,7 +42,7 @@ Current version: v3.0.1 - released 10/7/2021
   - Have special callbacks that fire when a target is connected, or disconnected from the controller’s scope. For example phraseTargetConnected() and phraseTargetDisconneted()
 ---
 ## Actions
-- Are listeners that connects a controller’s action to a DOM element
+- Are listeners that connects a controller’s methods to DOM elements
   - Can combine different controller methods to fire on the same action
   - Do not need to specify the trigger event for default actions, like ‘click’ for buttons. This gives data-action="speak#sayHello"
   - Actions can be on global events of the window and document.
